@@ -8,6 +8,7 @@ const useStartOverHook = () => {
   const { answers } = results;
   useEffect(() => {
     answers.length < 1 && navigate('/');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 export default useStartOverHook;
