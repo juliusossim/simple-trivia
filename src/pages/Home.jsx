@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { totalQuestions } from '../utilities/resources';
 import { resetAnswers } from '../app/questionSlice';
-import useStartOverHook from '../components/useStartOverHook';
 
 const Home = () => {
   /* redux hooks */
