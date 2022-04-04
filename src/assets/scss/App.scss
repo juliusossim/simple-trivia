@@ -1,7 +1,12 @@
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap.scss';
 @import "breakpoints";
 @import "mixins/sizes";
 @import "variables/themes";
+
+body {
+  font-family: Roboto cursive;
+  font-weight: 500;
+}
 
 .font-title-small {
   @include font-size($screen-sm-min, $screen-xl-min, $theme-regular, $theme-title-1, $theme-line-regular, $theme-line-title-1);
@@ -23,11 +28,32 @@
 }
 .center-center {
   text-align: center;
-  white-space: nowrap;
+  //white-space: nowrap;
   vertical-align: middle;
   display: inline-block;
 }
-
+.central {
+  position: absolute;
+  top: 50%;
+  left: 33.3%;
+  width: 33.3vw;
+  word-break: break-word;
+  transform: translate(0, -50%);
+  .space-top {
+    position: relative;
+    top: 80px;
+  }
+}
+.border-solid-2 {
+  border: solid 2px;
+}
+.details {
+  @extend .font-title;
+  .text-info, .text-danger, .text-success {
+    font-size: $theme-small;
+    line-height: $theme-line-small;
+  }
+}
 .custom-box-2 {
   padding: 10px;
   background: transparent;
@@ -73,7 +99,8 @@ a {
   text-decoration: none;
   color: inherit;
   &:hover {
-    @extend .text-theme-faint-1
+    font-size: larger;
+    @extend .text-theme
   }
 }
 
