@@ -4,6 +4,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { triviaApi } from './service';
 import questionReducer from './questionSlice';
 
+// eslint-disable-next-line import/prefer-default-export
 export const store = configureStore({
   reducer: {
     answers: questionReducer,

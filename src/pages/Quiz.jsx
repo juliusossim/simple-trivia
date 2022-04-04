@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useGetQuestionsQuery } from '../app/service';
 import Question from '../components/Question';
 import { answers, wrongAnswers } from '../app/questionSlice';
-import {answerType, gameLevel, totalQuestions} from '../utilities/resources';
+import { answerType, gameLevel, totalQuestions } from '../utilities/resources';
 import useStartOverHook from '../components/useStartOverHook';
 
 const Quiz = () => {
