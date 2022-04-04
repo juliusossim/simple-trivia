@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import he from 'he';
 import { totalQuestions } from '../utilities/resources';
 import CustomAccordion from '../components/CustomAccordion';
-import useStartOverHook from '../components/useStartOverHook';
+import useResults from '../components/hooks/useResults';
 
 const Quiz = () => {
-  /* custom hooks */
-  useStartOverHook();
-
-  /* redux hooks */
-  const results = useSelector((state) => state.answers);
-  const { answers, wrongAnswers } = results;
-
-  /* react hooks */
-  const [currentPanel, setCurrentPanel] = useState(1);
+  const {
+    answers,
+    wrongAnswers,
+    currentPanel,
+    setCurrentPanel
+  } = useResults();
 
   return (
     <div>

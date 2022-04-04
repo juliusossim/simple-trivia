@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { totalQuestions } from '../utilities/resources';
-import { resetAnswers } from '../app/questionSlice';
+import useHome from '../components/hooks/useHome';
 
 const Home = () => {
-  /* redux hooks */
-  const dispatch = useDispatch();
-
-  /* react hooks */
-  useEffect(() => {
-    dispatch(resetAnswers());
-  }, [dispatch]);
-
+  useHome();
   return (
     <div className="bg-theme-faint-1 vh-100 py-5">
       <div className="bg-theme-faint-1 vh-100">
