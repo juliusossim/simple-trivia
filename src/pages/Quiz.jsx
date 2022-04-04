@@ -5,7 +5,6 @@ import { useGetQuestionsQuery } from '../app/service';
 import Question from '../components/Question';
 import { answers, resetAnswers, wrongAnswers } from '../app/questionSlice';
 import { answerType, gameLevel, totalQuestions } from '../utilities/resources';
-import useStartOverHook from '../components/useStartOverHook';
 
 const Quiz = () => {
   /* redux hooks */
