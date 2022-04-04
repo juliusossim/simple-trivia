@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {Fragment} from "react";
+import {oddChecker} from "../utilities/helperFuncs";
 // import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/all';
 // import Box from '@material-ui/core/Box';
 
@@ -13,27 +15,47 @@ const CustomAccordion = ({
         <div className="px-3">
             {/* eslint-disable-next-line max-len */}
             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-            <div className="pointer border-bottom mb-2" onClick={handleClick}>
-                <div className="d-flex bg-theme-faint-1 p-3">
-                    <div className="">
-                        <div className="mr-2 font-title-small">
+            <div className="pointer mb-2" onClick={handleClick}>
+                <div className="d-flex p-3 text-theme-faint-1">
+                    <div style={{ marginRight: '1.5rem' }}>
+                        <div className="font-title">
                             {
-                                panel === currentPanel
-                                    ? collapse || '-'
-                                    : expand || '+'
+                                oddChecker(panel)
+                                ? <Fragment>&nbsp;</Fragment>
+                                    : (
+                                        <Fragment>
+                                            {
+                                                panel === currentPanel
+                                                    ? collapse || '-'
+                                                    : expand || '+'
+                                            }
+                                        </Fragment>
+                                    )
                             }
                         </div>
                     </div>
-                    <div className="mt-md-1">
-                        {data.name}
+                    <div className={currentPanel === panel ? 'custom-box-2 font-title-small' : ' bg-theme-faint-1 text-theme-faint-1'}>
+                        {
+                            <div>
+                                {
+                                    data.details
+                                }
+                                <div className={currentPanel === panel ? '' : 'd-none'}>
+                                    <div className="text-info">
+                                {`Your answer: ${data.answer}`}
+                            </div>
+                                    <div className={collapse === '-' ? 'text-danger' : 'text-success'}>
+                                        {
+                                            collapse === '-'
+                                                ? <Fragment>wrong</Fragment>
+                                                : <Fragment>correct</Fragment>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
                     </div>
-                    {/* <div className="ml-2"> */}
-                    {/*  {removeAccordion} */}
-                    {/* </div> */}
                 </div>
-            </div>
-            <div className={currentPanel === panel ? 'custom-box-2' : 'd-none'}>
-                {data.details}
             </div>
         </div>
     );
