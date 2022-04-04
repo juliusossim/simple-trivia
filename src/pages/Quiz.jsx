@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useGetQuestionsQuery } from '../app/service';
 import Question from '../components/Question';
-import { answers, wrongAnswers } from '../app/questionSlice';
+import { answers, resetAnswers, wrongAnswers } from '../app/questionSlice';
 import { answerType, gameLevel, totalQuestions } from '../utilities/resources';
 import useStartOverHook from '../components/useStartOverHook';
 
 const Quiz = () => {
-  /* custom hooks */
-  useStartOverHook();
-
   /* redux hooks */
   const dispatch = useDispatch();
   const { isLoading, data } = useGetQuestionsQuery({ amt: 10, type: answerType, level: gameLevel });
@@ -22,6 +19,10 @@ const Quiz = () => {
   /* react hooks */
   const [questions, setQuestions] = useState([]);
   const [current, setCurrent] = useState(index);
+
+  useEffect(() => {
+    dispatch(resetAnswers());
+  }, [dispatch]);
 
   /**
    * checks answer is correct or otherwise
