@@ -1,6 +1,7 @@
 {
   "name": "simple-trivia",
   "version": "0.1.0",
+  "homepage": "https://glamour-simple-trivia.netlify.app/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
