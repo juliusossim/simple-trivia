@@ -44,7 +44,7 @@ const Quiz = () => {
         </div>
       </div>
       <div className="fixed-bottom pb-1 pt-3 mt-2 bg-white">
-        <Link className="" to="/">PLAY AGAIN</Link>
+        <Link className="" to="/">PLAY AGAIN ?</Link>
       </div>
     </div>
   );
