@@ -5,16 +5,29 @@ import { useGetQuestionsQuery } from '../app/service';
 import Question from '../components/Question';
 import { answers, wrongAnswers } from '../app/questionSlice';
 import { totalQuestions } from '../utilities/resources';
+import useStartOverHook from '../components/useStartOverHook';
 
 const Quiz = () => {
+  /* custom hooks */
+  useStartOverHook();
+
+  /* redux hooks */
   const dispatch = useDispatch();
+  const { isLoading, data } = useGetQuestionsQuery({ amt: 10, type: 'boolean', level: 'hard' });
+
+  /* router hooks */
   const { index } = useParams();
   const navigate = useNavigate();
 
+  /* react hooks */
   const [questions, setQuestions] = useState([]);
   const [current, setCurrent] = useState(index);
 
-  const { isLoading, data } = useGetQuestionsQuery({ amt: 10, type: 'boolean', level: 'hard' });
+  /**
+   * checks answer is correct or otherwise
+   * dispatches actions appropraitely
+   * @param answer
+   * */
   const handleAnswer = (answer) => {
     const correct = data?.results[current]?.correct_answer === answer;
     const answered = {

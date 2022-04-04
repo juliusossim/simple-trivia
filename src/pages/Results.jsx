@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import he from 'he';
 import { totalQuestions } from '../utilities/resources';
 import CustomAccordion from '../components/CustomAccordion';
+import useStartOverHook from '../components/useStartOverHook';
 
 const Quiz = () => {
-  /* router hooks */
-  const navigate = useNavigate();
+  /* custom hooks */
+  useStartOverHook();
 
   /* redux hooks */
   const results = useSelector((state) => state.answers);
@@ -15,10 +16,6 @@ const Quiz = () => {
 
   /* react hooks */
   const [currentPanel, setCurrentPanel] = useState(1);
-
-  useEffect(() => {
-    answers.length < 1 && navigate('/');
-  }, []);
 
   return (
     <div>
