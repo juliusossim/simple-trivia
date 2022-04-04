@@ -14,7 +14,3 @@ export const oddChecker = (numb) => {
     return numb % 2 !== 0;
   }
 };
-
-export const formatSpecialChars = (text) => text
-  .replace(/&quot;/g, '\"')
-  .replace(/&quot;/g, '\"');

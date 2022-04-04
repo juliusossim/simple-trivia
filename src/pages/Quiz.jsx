@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useGetQuestionsQuery } from '../app/service';
 import Question from '../components/Question';
 import { answers, wrongAnswers } from '../app/questionSlice';
-import { totalQuestions } from '../utilities/resources';
+import {answerType, gameLevel, totalQuestions} from '../utilities/resources';
 import useStartOverHook from '../components/useStartOverHook';
 
 const Quiz = () => {
@@ -13,7 +13,7 @@ const Quiz = () => {
 
   /* redux hooks */
   const dispatch = useDispatch();
-  const { isLoading, data } = useGetQuestionsQuery({ amt: 10, type: 'boolean', level: 'hard' });
+  const { isLoading, data } = useGetQuestionsQuery({ amt: 10, type: answerType, level: gameLevel });
 
   /* router hooks */
   const { index } = useParams();
